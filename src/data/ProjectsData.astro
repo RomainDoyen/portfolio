@@ -1,0 +1,137 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import img5 from "../assets/projects/5.png";
+import img6 from "../assets/projects/6.png";
+import img7 from "../assets/projects/7.png";
+import img8 from "../assets/projects/8.png";
+import img10 from "../assets/projects/10.png";
+import img11 from "../assets/projects/11.png";
+import img12 from "../assets/projects/12.png";
+import img14 from "../assets/projects/14.png";
+import img15 from "../assets/projects/15.png";
+
+export const projects = [
+  {
+    id: 1,
+    title: "ProxyBioline",
+    description:
+      "Circuit court entre le producteur et le consommateur du produit. Le but est de mettre en relation les producteurs locaux et les consommateurs. Les producteurs peuvent ajouter leurs produits et les consommateurs peuvent les acheter. Les producteurs peuvent aussi ajouter des points de vente pour leurs produits.",
+    technologies: ["React", "Leaflet", "Tailwind CSS", "Postgres"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/proxibio-line",
+    image: img10,
+  },
+  {
+    id: 2,
+    title: "Boilerplate Flask",
+    description:
+      "Un package Python qui permet de générer un projet Flask avec une structure de base. Lancez une commande et le package génère un projet Flask avec une structure de base. Le projet est prêt à être modifié et déployé.",
+    technologies: ["Python", "Flask"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/boilerplate-flask",
+    image: img5,
+  },
+  {
+    id: 3,
+    title: "Dodo'Cuisto",
+    description:
+      "Application de recette créole. L'application permet de consulter des recettes créoles, de les ajouter à ses favoris, de les partager et de les noter. L'application permet également de consulter des recettes en fonction des ingrédients que l'utilisateur possède.",
+    technologies: ["Java", "Android", "Swift", "iOS", "SQLite"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/DodoCuistoAndroid",
+    image: img7,
+  },
+  {
+    id: 4,
+    title: "Plateforme e-commerce",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae magni deserunt debitis recusandae ab harum totam, eum facilis et ratione officia ut inventore aspernatur",
+    technologies: ["Laravel", "MySQL", "Tailwind CSS"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/laravel-ecommerce",
+    image: img14,
+  },
+  {
+    id: 5,
+    title: "Design And Creation",
+    description:
+      "Portfolio de dessins et logo. Le but est de mettre en avant mes créations graphiques. Les dessins sont réalisés sur papier et les logos sont réalisés sur ordinateur.",
+    technologies: ["React", "Firebase", "Sass"],
+    demoLink: "https://designandcreation.vercel.app/",
+    repoLink: "https://github.com/RomainDoyen/designandcreation-react",
+    image: img6,
+  },
+  {
+    id: 6,
+    title: "TodoList",
+    description:
+      "Extension qui permet de gérer des tâches. L'extension permet d'ajouter des tâches, de les supprimer et de les marquer comme terminées.",
+    technologies: ["React", "Postgres", "Chrome Extension", "Firefox Extension"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/todolist-extension",
+    image: img8,
+  },
+  {
+    id: 7,
+    title: "Storm Tracker",
+    description:
+      "Application qui permet de suivre les tempêtes en temps réel sur une carte interactive. Les données sont récupérées depuis l'API Tropycal et stockées dans une base de données Supabase.",
+    technologies: ["Flask", "Leaflet", "Postgres", "Tropycal API"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/storm-tracker",
+    image: img11,
+  },
+  {
+    id: 8,
+    title: "Sweet Organic",
+    description:
+      "Boutique en ligne de bonbons bio.",
+    technologies: ["React", "Docker", "MySQL", "RabbitMQ", "TypeORM", "ExpressJS"],
+    demoLink: "#",
+    repoLink: "https://github.com/Zalxio/SweetOrganic",
+    image: img12,
+  },
+  {
+    id: 9,
+    title: "Poulets Grillés",
+    description:
+      "Application qui permet de localiser les vendeurs de poulets grillés à proximité. Les vendeurs peuvent ajouter leur position et les utilisateurs peuvent les localiser. Les utilisateurs peuvent aussi noter les vendeurs.",
+    technologies: ["React Native", "Appwrite"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/chicken-grills",
+    image: img15,
+  },
+];
+---
+
+{projects.map((project) => (
+    <div class="bg-base-300 p-5 h-fit rounded-xl shadow-lg">
+      <Image
+        src={project.image}
+        alt={project.title}
+        class="w-full rounded-xl h-56 object-cover"
+      />
+      <div>
+        <h1 class="my-2 font-bold">{project.title}</h1>
+        <p class="text-sm">{project.description}</p>
+      </div>
+      <div class="flex flex-wrap gap-2 my-3">
+        {project.technologies.map((tech, index) => (
+          <span class="badge bg-primary p-3 badge-sm">
+            {tech}
+          </span>
+        ))}
+      </div>
+      <div class="flex">
+        <a class="btn bg-secondary text-black w-2/3" href={project.demoLink}>
+          Demo
+          <Icon name="mdi:video-outline" class="w-4" />
+        </a>
+
+        <a class="btn btn-neutral w-1/3 ml-2" href={project.repoLink}>
+          <Icon name="mdi:github" class="w-4" />
+        </a>
+      </div>
+    </div>
+))}
