@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import imgCSS from "../assets/techno/css.png";
+import imgJS from "../assets/techno/js.png";
+import imgREACT from "../assets/techno/react.png";
+import imgHTML from "../assets/techno/html.png";
+import imgPython from "../assets/techno/python.png";
+import imgNODE from "../assets/techno/node-js.png";
+import imgTYPE from "../assets/techno/typescript.svg";
+import imgTAILWIND from "../assets/techno/tailwind.png";
+import imgPRISMA from "../assets/techno/prisma.webp";
+import imgPHP from "../assets/techno/php.png";
+import imgWP from "../assets/techno/wordpress.webp";
+import imgGit from "../assets/techno/git.png";
+import imgDocker from "../assets/techno/docker.png";
+import imgFirebase from "../assets/techno/firebase.png";
+import imgMariadb from "../assets/techno/mariadb.webp";
+import imgPostgres from "../assets/techno/postgresql.png";
+
+export const skills = [
+    { id: 1, name: "HTML", image: imgHTML },
+    { id: 2, name: "CSS", image: imgCSS },
+    { id: 3, name: "JavaScript", image: imgJS },
+    { id: 4, name: "React", image: imgREACT },
+    { id: 5, name: "Node.js", image: imgNODE },
+    { id: 6, name: "Tailwind CSS", image: imgTAILWIND },
+    { id: 7, name: "TypeScript", image: imgTYPE },
+    { id: 8, name: "Python", image: imgPython },
+    { id: 9, name: "Prisma", image: imgPRISMA },
+    { id: 10, name: "PHP", image: imgPHP },
+    { id: 11, name: "WordPress", image: imgWP },
+    { id: 12, name: "Git", image: imgGit },
+    { id: 13, name: "Docker", image: imgDocker },
+    { id: 14, name: "Firebase", image: imgFirebase },
+    { id: 15, name: "MariaDB", image: imgMariadb },
+    { id: 16, name: "PostgresSQL", image: imgPostgres },
+];
+---
+
+{skills.map((skill) => (
+    <div class="flex justify-center items-center flex-col">
+        <div class="w-24 h-24 p-2 rounded-full border-2 border-secondary">
+            <Image 
+                src={skill.image} 
+                alt={skill.name} 
+                class="w-full h-full object-cover rounded-full"
+            />
+        </div>
+        <span class="mt-2 text-sm">
+            {skill.name}
+        </span>
+    </div>
+))}
