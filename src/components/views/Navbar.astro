@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets'
+import rd from "../../assets/rd.png";
+---
+
+<div class="flex justify-center md:justify-between items-center p-4">
+    <a href="#Home" class="flex items-center font-bold text-3xl md:text-xl">
+      <Image 
+        src={rd} 
+        alt="logo" 
+        class="w-10 h-10 mr-2"
+      />
+      Romain {" "}
+      <span class="text-secondary"> Doyen</span>
+    </a>
+    <ul class="hidden md:flex space-x-4">
+      <li class="btn btn-sm btn-ghost">
+        <a href="#Home">Accueil</a>
+      </li>
+      <li class="btn btn-sm btn-ghost">
+        <a href="#About">A propos</a>
+      </li>
+      <li class="btn btn-sm btn-ghost">
+        <a href="#Experiences">Mes expériences</a>
+      </li>
+      <li class="btn btn-sm btn-ghost">
+        <a href="#Projects">Mes projets</a>
+      </li>
+    </ul>
+  </div>
