@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import img from "../../assets/img2.jpg";
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="flex flex-col-reverse md:flex-row justify-center items-center md:my-32 my-10" id="Home">
+    <div class="flex flex-col">
+      <h1 class="text-5xl md:text-6xl font-bold text-center md:text-left mt-4 md:mt-0">Bonjour, <br />je suis
+          <span class="text-secondary"> Romain Doyen</span>
+      </h1>
+      <p class="my-4 text-md text-center md:text-left">
+          Je suis un développeur fullstack avec 2 ans d'expérience, <br /> 
+          utilisant React et Node.js. <br />
+          Contactez-moi si vous avez besoin de mes services.
+      </p>
+      <a href="mailto:romain.doyen10@gmail.com" class="btn bg-primary text-white md:w-fit">
+          <Icon name="mdi:email-outline" class="w-5 h-5" />
+          Contactez-moi
+      </a>
+    </div>
+    <div class="md:ml-60">
+      <Image 
+          src={img} 
+          alt="hero"
+          class="w-96 h-96 object-cover border-8 border-secondary shadow-xl"
+          style={{
+              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70% "
+          }}
+      />
+    </div>
+  </div>

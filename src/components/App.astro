@@ -1,12 +1,14 @@
 ---
 import background from '../assets/background.svg';
 import Navbar from './views/Navbar.astro';
+import Home from './views/Home.astro';
 ---
 
 <div>
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<div class="p-5 md:px-[15%]">
 		<Navbar />
+		<Home />
 	</div>
 </div>
 
