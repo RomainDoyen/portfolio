@@ -5,10 +5,16 @@ import Home from './views/Home.astro';
 import About from './views/About.astro';
 import Experiences from './views/Experiences.astro';
 import Projects from './views/Projects.astro';
+import Footer from './views/Footer.astro';
 ---
 
 <div>
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
+	<img 
+		id="background" 
+		src={background.src} 
+		alt="background" 
+		fetchpriority="high" 
+	/>
 	<div class="p-5 md:px-[15%]">
 		<Navbar />
 		<Home />
@@ -18,6 +24,7 @@ import Projects from './views/Projects.astro';
 		<Experiences />
 		<Projects />
 	</div>
+	<Footer />
 </div>
 
 <style>

@@ -1,0 +1,25 @@
+---
+import rd from "../../assets/rd.png";
+import { Image } from 'astro:assets';
+import FooterLinks from "../../data/FooterLinks.astro";
+---
+
+<footer class="footer footer-center  p-10">
+    <aside>
+        <Image 
+            src={rd} 
+            alt="logo"
+            class="w-10 h-10"
+        />
+        <p class="font-bold">
+            Romain
+            <span class="text-secondary"> Doyen</span>
+        </p>
+        <p>Copyright © {new Date().getFullYear()} -  Tous droits réservés</p>
+    </aside>
+    <nav>
+        <div class="grid grid-flow-col gap-4">
+            <FooterLinks />
+        </div>
+    </nav>
+</footer>
