@@ -1,0 +1,22 @@
+---
+import Title from '../ui/Title.astro';
+import { Image } from 'astro:assets';
+import AboutData from '../../data/AboutData.astro';
+import img from "../../assets/img2.jpg";
+---
+
+<div class="bg-base-300 p-10 mb-10 md:mb-32" id="About">
+    <Title title="A propos" />
+    <div class="md:h-screen flex justify-center items-center">
+      <div class="hidden md:block">
+          <Image 
+              src={img} 
+              alt="hero" 
+              class="w-96 h-96 object-cover rounded-xl"
+          />
+      </div>
+      <div class="md:ml-4 space-y-4">
+          <AboutData />
+      </div>
+    </div>
+</div>

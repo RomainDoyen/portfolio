@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export type AboutSectionProps = {
+    id: number;
+    title: string;
+    description: string;
+    icon: string;
+}
+
+export const aboutSections: AboutSectionProps[] = [
+    {
+        id: 1,
+        title: "Développeur Frontend",
+        description: "Je suis un développeur frontend avec une bonne expérience.",
+        icon: "mdi:card-bulleted-outline",
+    },
+    {
+        id: 2,
+        title: "Développeur Backend",
+        description: "Je maîtrise les bases du développement backend pour créer des APIs robustes.",
+        icon: "mdi:calendar-sync",
+    },
+    {
+        id: 3,
+        title: "Passionné par l'UI/UX",
+        description: "Créer des interfaces utilisateur attrayantes et fonctionnelles est ma priorité.",
+        icon: "mdi:brush",
+    },
+];
+---
+
+<div class="md:ml-4 space-y-4">
+  {aboutSections.map((section) => (
+    <div class="flex flex-col md:flex-row items-center bg-base-200 p-5 rounded-xl md:w-96 shadow-xl">
+        <div class="mb-2 md:mb-0">
+            <Icon name={section.icon} class="text-secondary scale-150" />
+        </div>
+        <div class="md:ml-4 text-center md:text-left">
+            <h2 class="text-xl font-bold mb-1">{section.title}</h2>
+            <p class="text-sm">{section.description}</p>
+        </div>
+    </div>
+  ))}
+</div>
