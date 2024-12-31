@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import ur from "../assets/companies/ur.png";
+import flaxib from "../assets/companies/flaxib.jpg";
+import sc from "../assets/companies/sc.png";
+import hivewapp from "../assets/companies/hivewapp.jpg";
+
+type ExperienceProps = {
+    id: number;
+    role: string;
+    company: string;
+    period: string;
+    description: string[];
+    image: ImageMetadata;
+};
+
+const experiences = [
+    {
+        id: 1,
+        role: "Backend Developer",
+        company: "Centre Sécurité Requin",
+        period: "Janvier 2024 - Juin 2024",
+        description: [
+            "Développement d'une interface utilisateur pour la génération de filets anti-requin.",
+            "Outils de conception pour l’analyse mécanique des filets anti-requin.",
+            "Technologies : Python, Orcaflex, Deeplines",
+        ],
+        image: sc,
+    },
+    {
+        id: 2,
+        role: "Designer",
+        company: "Hivewapp",
+        period: "Septembre 2023 - Novembre 2023",
+        description: [
+            "Rédaction et élaboration d’un design d’un livre blanc ayant pour thème le No code / Low code.",
+            "Technologies : Canva, Figma, NodeJS",
+        ],
+        image: hivewapp,
+    },
+    {
+        id: 3,
+        role: "Fullstack Developer",
+        company: "Direction de l'Innovation et de l'Ingénierie Pédagogique (D2IP)",
+        period: "Janvier 2023 - Mars 2023",
+        description: [
+            "Reprise et ajout de fonctionnalités à une application de bulletin de notes scolaires.",
+            "Mise en place d'une architecture scalable et optimisée.",
+            "Technologies : AngularJS, PHP, MySQL, TabulatorJS."
+        ],
+        image: ur,
+    },
+    {
+        id: 4,
+        role: "Backend Developer",
+        company: "Flaxib",
+        period: "Septembre 2022 - Novembre 2022",
+        description: [
+            "Création d'une application web qui calcule les itinéraires optimal pour les transports scolaires.",
+            "Technologies : Python, NodeJS, Docker, OR-TOOLS",
+        ],
+        image: flaxib,
+    },
+];
+---
+
+{experiences.map((experience: ExperienceProps) => (
+    <div class="flex flex-col bg-base-200 p-5 rounded-xl shadow-lg">
+        <div class="flex items-center">
+            <Image
+                src={experience.image}
+                alt={experience.company}
+                class="w-10 h-10 object-cover"
+            />
+            <div class="ml-4">
+                <h1 class="text-xl text-secondary font-bold">{experience.role}, {experience.company}</h1>
+                <span class="text-sm">{experience.period}</span>
+            </div>
+        </div>
+        <ul class="list-disc ml-20 mt-2">
+            {experience.description.map((desc) => (
+                <li>{desc}</li>
+            ))}
+        </ul>
+    </div>
+))}
