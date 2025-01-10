@@ -10,6 +10,7 @@ import img11 from "../assets/projects/11.png";
 import img12 from "../assets/projects/12.png";
 import img14 from "../assets/projects/14.png";
 import img15 from "../assets/projects/15.png";
+import img16 from "../assets/projects/16.png";
 
 export const projects = [
   {
@@ -102,6 +103,16 @@ export const projects = [
     repoLink: "https://github.com/RomainDoyen/chicken-grills",
     image: img15,
   },
+  {
+    id: 10,
+    title: "Ice Creams",
+    description:
+      "Une application mobile pour un magasin de crèmes glacées. L'application permet de consulter les produits, de les ajouter au panier et de passer commande. L'application permet également de consulter les magasins et de les localiser sur une carte.",
+    technologies: ["Flutter", "Android", "flutter-map", "Figma"],
+    demoLink: "#",
+    repoLink: "https://github.com/RomainDoyen/ice_creams",
+    image: img16,
+  },
 ];
 ---
 
@@ -124,12 +135,12 @@ export const projects = [
         ))}
       </div>
       <div class="flex">
-        <a class="btn bg-secondary text-black w-2/3" href={project.demoLink}>
+        <a class="btn bg-secondary text-black w-2/3" href={project.demoLink} target="_blank">
           Demo
           <Icon name="mdi:video-outline" class="w-4" />
         </a>
 
-        <a class="btn btn-neutral w-1/3 ml-2" href={project.repoLink}>
+        <a class="btn btn-neutral w-1/3 ml-2" href={project.repoLink} target="_blank">
           <Icon name="mdi:github" class="w-4" />
         </a>
       </div>
