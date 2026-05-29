@@ -1,22 +1,59 @@
 ---
-import Title from '../ui/Title.astro';
 import { Image } from 'astro:assets';
-import AboutData from '../../data/AboutData.astro';
-import img from "../../assets/img2.jpg";
+import { Icon } from 'astro-icon/components';
+import { aboutIntro, highlights, skillCategories } from '../../data/about';
+import img from '../../assets/img2.jpg';
 ---
 
-<div class="bg-base-300 p-10 mb-10 md:mb-32" id="About">
-    <Title title="A propos" />
-    <div class="md:h-screen flex justify-center items-center">
-      <div class="hidden md:block">
-          <Image 
-              src={img} 
-              alt="hero" 
-              class="w-96 h-96 object-cover rounded-xl"
-          />
-      </div>
-      <div class="md:ml-4 space-y-4">
-          <AboutData />
-      </div>
-    </div>
-</div>
+<section
+	class="section-py px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+	id="propos"
+>
+	<div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+		<div class="scroll-reveal">
+			<div
+				class="relative rounded-3xl overflow-hidden glass-card p-2 aspect-square md:aspect-auto md:h-[600px]"
+			>
+				<Image
+					src={img}
+					alt="Romain Doyen au travail"
+					class="w-full h-full object-cover rounded-2xl opacity-80"
+				/>
+			</div>
+		</div>
+
+		<div class="scroll-reveal">
+			<h2 class="font-display text-headline-md text-primary mb-8 neon-glow">À propos de moi</h2>
+			<p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+				{aboutIntro}
+			</p>
+
+			<div class="space-y-6">
+				{
+					skillCategories.map((category) => (
+						<div class="space-y-3">
+							<h3 class="font-display text-button text-primary">{category.label}</h3>
+							<div class="flex flex-wrap gap-2">
+								{category.items.map((item) => (
+									<span class="chip-accent">{item}</span>
+								))}
+							</div>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
+				{
+					highlights.map((item) => (
+						<div class="glass-card p-6 rounded-2xl">
+							<Icon name={item.icon} class="text-primary w-8 h-8 mb-2" />
+							<h4 class="font-display text-button mb-1">{item.title}</h4>
+							<p class="text-on-surface-variant text-sm">{item.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

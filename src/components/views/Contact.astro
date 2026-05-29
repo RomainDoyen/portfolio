@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+import { contactEmail } from '../../data/footer';
+---
+
+<section
+	class="section-py px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center scroll-reveal"
+	id="contact"
+>
+	<div class="glass-card p-8 sm:p-12 lg:p-20 rounded-3xl lg:rounded-[40px] border-primary/30 relative overflow-hidden">
+		<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" aria-hidden="true" />
+		<div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]" aria-hidden="true" />
+		<h2 class="font-display text-display-lg-mobile lg:text-display-lg mb-6 leading-tight relative">
+			Prêt pour votre <br />
+			<span class="text-primary neon-glow">prochain projet ?</span>
+		</h2>
+		<p class="text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto relative">
+			Discutons de vos idées et voyons comment je peux vous aider à les concrétiser avec une
+			solution technique solide et soignée.
+		</p>
+		<a
+			href={`mailto:${contactEmail}`}
+			class="relative inline-flex flex-wrap items-center justify-center gap-3 bg-primary-container text-on-primary-container px-6 py-4 sm:px-10 sm:py-5 rounded-full font-display text-button hover:scale-105 transition-transform shadow-[0_0_30px_rgba(245,166,35,0.4)] max-w-full"
+		>
+			Me contacter par email
+			<Icon name="mdi:email-outline" class="w-5 h-5" />
+		</a>
+	</div>
+</section>

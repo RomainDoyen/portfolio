@@ -1,43 +1,28 @@
 ---
-import background from '../assets/background.svg';
 import Navbar from './views/Navbar.astro';
 import Home from './views/Home.astro';
 import About from './views/About.astro';
 import Experiences from './views/Experiences.astro';
 import Projects from './views/Projects.astro';
+import Contact from './views/Contact.astro';
 import Footer from './views/Footer.astro';
 ---
 
-<div>
-	<img 
-		id="background" 
-		src={background.src} 
-		alt="background" 
-		fetchpriority="high" 
-	/>
-	<div class="p-5 md:px-[15%]">
-		<Navbar />
-		<Home />
-	</div>
-	<About />
-	<div class="p-5 md:px-[15%]">
-		<Experiences />
-		<Projects />
-	</div>
-	<Footer />
-</div>
+<div class="animated-bg" id="particles-container" aria-hidden="true"></div>
 
-<style>
-	html {
-    	scroll-behavior: smooth;
-	}
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-</style>
+<Navbar />
+
+<main class="relative z-10">
+	<Home />
+	<About />
+	<Experiences />
+	<Projects />
+	<Contact />
+</main>
+
+<Footer />
+
+<script>
+	import { initPortfolioAnimations } from '../scripts/portfolio';
+	initPortfolioAnimations();
+</script>

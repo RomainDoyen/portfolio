@@ -1,25 +1,28 @@
 ---
-import rd from "../../assets/rd.png";
-import { Image } from 'astro:assets';
-import FooterLinks from "../../data/FooterLinks.astro";
+import { footerLinks } from '../../data/footer';
 ---
 
-<footer class="footer footer-center  p-10">
-    <aside>
-        <Image 
-            src={rd} 
-            alt="logo"
-            class="w-10 h-10"
-        />
-        <p class="font-bold">
-            Romain
-            <span class="text-secondary"> Doyen</span>
-        </p>
-        <p>Copyright © {new Date().getFullYear()} -  Tous droits réservés</p>
-    </aside>
-    <nav>
-        <div class="grid grid-flow-col gap-4">
-            <FooterLinks />
-        </div>
-    </nav>
+<footer class="w-full py-16 bg-background border-t border-outline-variant/30">
+	<div
+		class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter"
+	>
+		<div class="font-display text-headline-md text-primary font-bold">Romain Doyen</div>
+		<p class="font-mono text-label-mono text-on-surface-variant text-center md:text-left">
+			© {new Date().getFullYear()} Romain Doyen. Tous droits réservés.
+		</p>
+		<div class="flex gap-6">
+			{
+				footerLinks.map((link) => (
+					<a
+						href={link.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="font-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors"
+					>
+						{link.label}
+					</a>
+				))
+			}
+		</div>
+	</div>
 </footer>

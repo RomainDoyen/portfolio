@@ -1,32 +1,55 @@
 ---
 import { Image } from 'astro:assets';
-import img from "../../assets/img2.jpg";
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
+import img from '../../assets/rd.png';
 ---
 
-<div class="flex flex-col-reverse md:flex-row justify-center items-center md:my-32 my-10" id="Home">
-    <div class="flex flex-col">
-      <h1 class="text-5xl md:text-6xl font-bold text-center md:text-left mt-4 md:mt-0">Bonjour, <br />je suis
-          <span class="text-secondary"> Romain Doyen</span>
-      </h1>
-      <p class="my-4 text-md text-center md:text-left">
-          Je suis un développeur fullstack avec 2 ans d'expérience, <br /> 
-          utilisant React et Node.js. <br />
-          Contactez-moi si vous avez besoin de mes services.
-      </p>
-      <a href="mailto:romain.doyen10@gmail.com" class="btn bg-primary text-white md:w-fit">
-          <Icon name="mdi:email-outline" class="w-5 h-5" />
-          Contactez-moi
-      </a>
-    </div>
-    <div class="md:ml-60">
-      <Image 
-          src={img} 
-          alt="hero"
-          class="w-96 h-96 object-cover border-8 border-secondary shadow-xl"
-          style={{
-              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70% "
-          }}
-      />
-    </div>
-  </div>
+<section
+	class="min-h-screen flex items-center pt-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+	id="accueil"
+>
+	<div class="grid lg:grid-cols-2 gap-gutter items-center w-full">
+		<div class="scroll-reveal min-w-0 text-center lg:text-left">
+			<h1
+				class="font-display text-display-lg-mobile lg:text-display-lg mb-6 leading-none"
+			>
+				Développeur <span class="text-primary neon-glow">Fullstack</span> passionné
+			</h1>
+			<p class="text-body-lg text-on-surface-variant mb-10 max-w-lg mx-auto lg:mx-0">
+				Je ne livre pas des maquettes&nbsp;: je livre des produits web et mobile prêts
+				à tourner en production.
+			</p>
+			<div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+				<a href="#contact" class="btn-primary">Contactez-moi</a>
+				<a href="#projets" class="btn-secondary">Voir mes projets</a>
+			</div>
+		</div>
+
+		<div
+			class="relative flex flex-col items-center scroll-reveal mt-12 lg:mt-0 min-w-0 w-full max-w-[420px] mx-auto lg:max-w-none"
+		>
+			<div
+				class="relative w-full max-w-[288px] sm:max-w-[360px] lg:max-w-[420px] aspect-square glass-card rounded-3xl flex items-center justify-center border border-primary/20 p-8 sm:p-10 lg:p-14"
+			>
+				<Image
+					src={img}
+					alt="Logo Romain Doyen"
+					class="w-full h-full object-contain"
+				/>
+			</div>
+			<div
+				class="mt-6 lg:mt-0 lg:absolute lg:-bottom-6 lg:-right-2 xl:bottom-0 xl:right-0 glass-card p-4 sm:p-6 rounded-2xl flex items-center gap-4 w-full sm:w-auto"
+			>
+				<div
+					class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary"
+				>
+					<Icon name="mdi:code-tags" class="w-6 h-6" />
+				</div>
+				<div>
+					<div class="font-mono text-label-mono text-primary">2+ Ans</div>
+					<div class="font-display text-button">Expérience</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

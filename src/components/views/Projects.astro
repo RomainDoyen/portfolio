@@ -1,11 +1,63 @@
 ---
-import Title from '../ui/Title.astro'
-import ProjectsData from '../../data/ProjectsData.astro'
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import { projects } from '../../data/projects';
 ---
 
-<div class="mt-20" id="Projects">
-    <Title title="Projets" />
-    <div class="grid md:grid-cols-3 gap-4">
-      <ProjectsData />
-    </div>
-</div>
+<section
+	class="section-py px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+	id="projets"
+>
+	<h2 class="font-display text-headline-md text-primary mb-16 text-center neon-glow scroll-reveal">
+		Projets sélectionnés
+	</h2>
+
+	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+		{
+			projects.map((project) => (
+				<article class="group relative glass-card rounded-3xl overflow-hidden scroll-reveal">
+					<div class="aspect-[4/3] relative overflow-hidden">
+						<Image
+							src={project.image}
+							alt={project.title}
+							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+						/>
+						<div class="project-overlay absolute inset-0 backdrop-blur-sm transition-opacity flex items-center justify-center gap-4">
+							{project.demoLink !== '#' && (
+								<a
+									href={project.demoLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="bg-primary text-on-primary-fixed p-3 rounded-full hover:scale-110 transition-transform"
+									aria-label={`Voir la démo de ${project.title}`}
+								>
+									<Icon name="mdi:eye-outline" class="w-5 h-5" />
+								</a>
+							)}
+							<a
+								href={project.repoLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="bg-white/10 backdrop-blur-md text-white p-3 rounded-full hover:scale-110 transition-transform"
+								aria-label={`Code source de ${project.title}`}
+							>
+								<Icon name="mdi:github" class="w-5 h-5" />
+							</a>
+						</div>
+					</div>
+					<div class="p-6">
+						<h4 class="font-display text-2xl mb-2">{project.title}</h4>
+						<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+							{project.description}
+						</p>
+						<div class="flex flex-wrap gap-2">
+							{project.technologies.map((tech) => (
+								<span class="chip-accent">{tech}</span>
+							))}
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
