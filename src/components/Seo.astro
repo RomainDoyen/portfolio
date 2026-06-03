@@ -1,0 +1,51 @@
+---
+import { buildJsonLd, siteConfig } from '../data/seo';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	imageAlt?: string;
+	noindex?: boolean;
+}
+
+const {
+	title = siteConfig.title,
+	description = siteConfig.description,
+	image = siteConfig.ogImage,
+	imageAlt = siteConfig.ogImageAlt,
+	noindex = false,
+} = Astro.props;
+
+const site = Astro.site;
+const canonicalUrl = site ? new URL(Astro.url.pathname, site).href : undefined;
+const ogImageUrl = site ? new URL(image, site).href : image;
+const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+const jsonLd = site ? buildJsonLd(site.origin) : null;
+---
+
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+<meta name="description" content={description} />
+<meta name="keywords" content={siteConfig.keywords.join(', ')} />
+<meta name="author" content={siteConfig.name} />
+<meta name="robots" content={robots} />
+<meta name="theme-color" content="#19120a" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={siteConfig.locale} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+{jsonLd && (
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

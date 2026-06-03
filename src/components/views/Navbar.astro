@@ -8,6 +8,7 @@ const links = [
 ---
 
 <nav
+	aria-label="Navigation principale"
 	class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-white/10 shadow-[0_0_15px_rgba(245,166,35,0.05)]"
 >
 	<div
@@ -16,7 +17,6 @@ const links = [
 		<a
 			href="#accueil"
 			class="font-display text-lg sm:text-xl lg:text-2xl font-bold text-primary shrink-0"
-			data-nav
 		>
 			Romain Doyen
 		</a>
@@ -26,7 +26,7 @@ const links = [
 				links.map((link) => (
 					<a
 						href={link.href}
-						data-nav
+						data-nav-section
 						class:list={[
 							'font-display text-button transition-colors hover:text-primary hover:drop-shadow-[0_0_8px_rgba(245,166,35,0.8)]',
 							link.active ? 'nav-link-active' : 'text-on-surface-variant',
@@ -38,7 +38,6 @@ const links = [
 			}
 			<a
 				href="#contact"
-				data-nav
 				class="ml-4 bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-display text-button hover:brightness-110 transition-all shadow-lg hover:shadow-primary/20"
 			>
 				Contact
@@ -63,7 +62,7 @@ const links = [
 				links.map((link) => (
 					<a
 						href={link.href}
-						data-nav
+						data-nav-section
 						class:list={[
 							'font-display text-button py-2',
 							link.active ? 'text-primary' : 'text-on-surface-variant',
@@ -73,7 +72,7 @@ const links = [
 					</a>
 				))
 			}
-			<a href="#contact" data-nav class="btn-primary text-center mt-2 py-3">Contact</a>
+			<a href="#contact" class="btn-primary text-center mt-2 py-3">Contact</a>
 		</div>
 	</div>
 </nav>

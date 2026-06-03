@@ -39,5 +39,13 @@ function robotsTxt() {
 // https://astro.build/config
 export default defineConfig({
 	site,
-	integrations: [icon(), sitemap(), robotsTxt()],
+	integrations: [
+		icon(),
+		sitemap({
+			changefreq: 'monthly',
+			priority: 1,
+			lastmod: new Date(),
+		}),
+		robotsTxt(),
+	],
 });

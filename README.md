@@ -17,18 +17,31 @@ cp .env.example .env
 
 `SITE_URL` est requis pour générer `sitemap.xml` et `robots.txt` au build (`astro build`).
 
-## SEO (sitemap & robots)
+## SEO
 
-Au build, Astro génère automatiquement :
-
-- **`/sitemap.xml`** — liste des pages du site
-- **`/robots.txt`** — autorise l’indexation et pointe vers le sitemap
-
-Définir `SITE_URL` dans `.env` (et sur l’hébergeur) avec l’URL de production, par exemple :
+`SITE_URL` est requis pour le sitemap, `robots.txt`, l’URL canonique et les balises Open Graph.
 
 ```env
 SITE_URL=https://romaindoyen.netlify.app
 ```
+
+### Généré au build
+
+- **`/sitemap.xml`** — plan du site
+- **`/robots.txt`** — indexation + lien vers le sitemap
+
+### Métadonnées (fichier `src/data/seo.ts`)
+
+- Titre, description, mots-clés, auteur
+- URL canonique, Open Graph, Twitter Card
+- JSON-LD : `Person`, `WebSite`, `ProfilePage`
+- Image de partage : `public/og.png`
+
+### Après déploiement
+
+1. [Google Search Console](https://search.google.com/search-console) — soumettre `/sitemap.xml`
+2. [Rich Results Test](https://search.google.com/test/rich-results) — valider les données structurées
+3. [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) — rafraîchir l’aperçu OG
 
 ## Google Analytics
 

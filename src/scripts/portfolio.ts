@@ -50,8 +50,10 @@ export function initPortfolioAnimations() {
 	);
 	document.querySelectorAll('.scroll-reveal').forEach((el) => revealObserver.observe(el));
 
-	const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a[data-nav]');
-	navLinks.forEach((anchor) => {
+	const navAnchors = document.querySelectorAll<HTMLAnchorElement>('nav a[href^="#"]');
+	const sectionNavLinks = document.querySelectorAll<HTMLAnchorElement>('nav a[data-nav-section]');
+
+	navAnchors.forEach((anchor) => {
 		anchor.addEventListener('click', (e) => {
 			const href = anchor.getAttribute('href');
 			if (!href?.startsWith('#')) return;
@@ -62,12 +64,14 @@ export function initPortfolioAnimations() {
 				top: target.getBoundingClientRect().top + window.scrollY - 80,
 				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 			});
-			navLinks.forEach((l) => {
+			sectionNavLinks.forEach((l) => {
 				l.classList.remove('nav-link-active', 'text-primary');
 				l.classList.add('text-on-surface-variant');
 			});
-			anchor.classList.add('nav-link-active', 'text-primary');
-			anchor.classList.remove('text-on-surface-variant');
+			if (anchor.hasAttribute('data-nav-section')) {
+				anchor.classList.add('nav-link-active', 'text-primary');
+				anchor.classList.remove('text-on-surface-variant');
+			}
 			document.getElementById('mobile-menu')?.classList.add('hidden');
 		});
 	});

@@ -6,11 +6,15 @@ import { contactEmail } from '../../data/footer';
 <section
 	class="section-py px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center scroll-reveal"
 	id="contact"
+	aria-labelledby="contact-heading"
 >
 	<div class="glass-card p-8 sm:p-12 lg:p-20 rounded-3xl lg:rounded-[40px] border-primary/30 relative overflow-hidden">
 		<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px]" aria-hidden="true" />
 		<div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]" aria-hidden="true" />
-		<h2 class="font-display text-display-lg-mobile lg:text-display-lg mb-6 leading-tight relative">
+		<h2
+			id="contact-heading"
+			class="font-display text-display-lg-mobile lg:text-display-lg mb-6 leading-tight relative"
+		>
 			Prêt pour votre <br />
 			<span class="text-primary neon-glow">prochain projet ?</span>
 		</h2>
